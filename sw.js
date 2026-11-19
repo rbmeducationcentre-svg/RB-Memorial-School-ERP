@@ -1,4 +1,4 @@
-const CACHE="rb-memorial-erp-v1";
+const CACHE="rb-memorial-erp-v2";
 const CORE=["./","./index.html","./manifest.webmanifest","./icon.svg","./assets/school-logo.jpg.b64","./assets/principal-photo.jpg.b64"];
 self.addEventListener("install",event=>{event.waitUntil(caches.open(CACHE).then(cache=>cache.addAll(CORE)));self.skipWaiting()});
 self.addEventListener("activate",event=>{event.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(key=>key!==CACHE).map(key=>caches.delete(key)))).then(()=>self.clients.claim()))});
